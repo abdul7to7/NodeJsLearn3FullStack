@@ -13,15 +13,37 @@ exports.postData = (req, res) => {
     amount: req.body.amount,
     description: req.body.description,
     category: req.body.category,
-  });
-  res.json({
-    id: Math.random().toString(),
-    title: req.body.amount,
-    description: req.body.description,
-    category: req.body.category,
-  });
+  })
+    .then(() => {
+      res.json({
+        id: Math.random().toString(),
+        title: req.body.amount,
+        description: req.body.description,
+        category: req.body.category,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 exports.deleteData = (req, res) => {
-  Expense.destroy({ where: { id: req.params.ExId } });
-  res.json();
+  Expense.destroy({ where: { id: req.params.ExId } })
+    .then(() => {
+      res.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.putData = (req, res) => {
+  Expense.findOne({ where: { id: req.params.ExId } })
+    .then((data) => {
+      data
+        .update({
+          amount: req.body.amount,
+          description: req.body.description,
+          category: req.body.category,
+        })
+        .then(() => {
+          res.json({});
+        });
+    })
+    .catch((err) => console.log(err));
 };

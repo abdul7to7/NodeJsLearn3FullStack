@@ -58,11 +58,6 @@ async function postData(amount, desc, cat) {
       amount: amount,
       description: desc,
       category: cat,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*", // Allow requests from any origin (for development)
-        // Add other headers as needed
-      },
     });
     return res.data;
   } catch (e) {
@@ -90,10 +85,10 @@ async function deleteData(id) {
 
 async function putData(amount, desc, cat, _id) {
   try {
-    await axios.put(`https://crudcrud.com/api/${API_ID}/ExpenseR/${_id}`, {
-      ExpenseAmount: amount,
-      Description: desc,
-      Category: cat,
+    await axios.put(`http://localhost:4000/${_id}`, {
+      amount: amount,
+      description: desc,
+      category: cat,
     });
   } catch (e) {
     console.log(e);
