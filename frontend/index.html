@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--Inputs-->
+    <div class="">
+      <label
+        >Choose Expense Amount
+        <input type="number" id="exp-amount" />
+      </label>
+      <label
+        >Choose Description
+        <input type="text" id="desc" />
+      </label>
+      <label
+        >Choose Category
+        <select id="category">
+          <option>Fuel</option>
+          <option>Food</option>
+          <option>Electricity</option>
+          <option>Movies</option>
+        </select>
+      </label>
+      <button type="button" id="add-btn" class="btn btn-primary">Add</button>
+    </div>
+    <!--Lists-->
+    <div class="mb-3 ml-3">
+      <ul id="list"></ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
